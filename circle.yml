@@ -1,2 +1,5 @@
 general:
 build_dir: api
+machine:
+environment:
+TESTOPTS: "--ci-dir=$CIRCLE_TEST_REPORTS/minitest-ci"
