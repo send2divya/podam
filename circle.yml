@@ -4,14 +4,15 @@ machine:
 
   java:
     version: oraclejdk8
-
+     
 general:
    artifacts:
      - $CIRCLE_TEST_REPORTS
+     - target
      
-
 test:
-  
-  pre:
-    - mkdir -p $CIRCLE_TEST_REPORTS/reports
-    - eslint ./src/ --format junit --output-file $CIRCLE_TEST_REPORTS/test/test-results.xml
+  override:
+   # - mvn clean install
+  post:
+    - mkdir -p $CIRCLE_TEST_REPORTS/junit/
+    - find . -type f -regex ".*/target/failsafe-reports/.*xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
