@@ -11,6 +11,9 @@ general:
       - master
       - develop
 
+   artifacts:
+     - $CIRCLE_TEST_REPORTS
+
 test:
   post:
     - mkdir -p $CIRCLE_TEST_REPORTS/junit/
