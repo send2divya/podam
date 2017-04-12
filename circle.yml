@@ -2,7 +2,5 @@ general:
 build_dir: api
 test:
   override:
-  karma start ./karma.conf.js:
-  environment:
-  JUNIT_REPORT_PATH: $CIRCLE_TEST_REPORTS/junit/
-  JUNIT_REPORT_NAME: test-results.xml
+    - mkdir -p $CIRCLE_TEST_REPORTS/cucumber
+    - bundle exec cucumber --format junit --out $CIRCLE_TEST_REPORTS/junit/test-results.xml
