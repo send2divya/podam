@@ -1,3 +1,35 @@
+
+Skip to content
+This repository
+
+    Pull requests
+    Issues
+    Gist
+
+    @send2divya
+
+0
+0
+
+    0
+
+NapoleonLotivio/podam
+Code
+Issues 0
+Pull requests 0
+Projects 0
+Wiki
+Pulse
+Graphs
+podam/pom.xml
+8f75bf1 on Oct 9, 2016
+@daivanov daivanov Release 7.0.0
+@mtedone
+@daivanov
+@astubbs
+@kirikaza
+@fxbonnet
+510 lines (485 sloc) 14 KB
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
@@ -10,14 +42,14 @@
 
 	<groupId>uk.co.jemos.podam</groupId>
 	<artifactId>podam</artifactId>
-	<version>7.1.0-SNAPSHOT</version>
+	<version>7.0.0.RELEASE</version>
 	<name>podam</name>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<serenity.version>1.2.2</serenity.version>
-		<spring.version>4.3.6.RELEASE</spring.version>
-		<log4j.version>2.7</log4j.version>
+		<serenity.version>1.1.36</serenity.version>
+		<spring.version>4.1.6.RELEASE</spring.version>
+		<log4j.version>2.6.2</log4j.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<github.global.server>github</github.global.server>
@@ -143,19 +175,6 @@
                 <role>Developer</role>
             </roles>
         </contributor>
-		<contributor>
-			<name>maxdidato</name>
-			<roles>
-				<role>Developer</role>
-			</roles>
-		</contributor>
-                <contributor>
-                        <name>Andrey Artyukhov</name>
-			<email>andrey.artyukhov@constant.obninsk.ru</email>
-                        <roles>
-                                <role>Developer</role>
-                        </roles>
-                </contributor>
 	</contributors>
 
 
@@ -190,19 +209,6 @@
 					<autoReleaseAfterClose>true</autoReleaseAfterClose>
 				</configuration>
 			</plugin>
-			
-			 <plugin>
-                    <groupId>com.github.github</groupId>
-                    <artifactId>site-maven-plugin</artifactId>
-                    <version>0.10</version>
-                    <dependencies>
-                        <dependency>
-                            <groupId>org.eclipse.mylyn.github</groupId>
-                            <artifactId>org.eclipse.egit.github.core</artifactId>
-                            <version>2.1.4</version>
-                        </dependency>
-                    </dependencies>
-                </plugin>
 
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -239,13 +245,22 @@
 				<artifactId>maven-site-plugin</artifactId>
 				<version>3.3</version>
 			</plugin>
-			  <plugin>
-                    <groupId>com.github.github</groupId>
-                    <artifactId>site-maven-plugin</artifactId>
-                    <version>0.10</version>
-                   
-                </plugin>
-			
+			<plugin>
+				<groupId>com.github.github</groupId>
+				<artifactId>site-maven-plugin</artifactId>
+				<version>0.12</version>
+				<configuration>
+					<message>Creating site for ${project.version}</message>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>site</goal>
+						</goals>
+						<phase>site</phase>
+					</execution>
+				</executions>
+			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-project-info-reports-plugin</artifactId>
@@ -309,20 +324,6 @@
 				<groupId>org.jacoco</groupId>
 				<artifactId>jacoco-maven-plugin</artifactId>
 				<version>0.7.6.201602180812</version>
-				<executions>
-					<execution>
-						<goals>
-							<goal>prepare-agent</goal>
-						</goals>
-					</execution>
-					<execution>
-						<id>report</id>
-						<phase>verify</phase>
-						<goals>
-							<goal>report</goal>
-						</goals>
-					</execution>
-				</executions>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -442,7 +443,7 @@
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
-			<version>1.7.22</version>
+			<version>1.7.21</version>
 		</dependency>
 		<dependency>
 			<groupId>javax.annotation</groupId>
@@ -457,7 +458,7 @@
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
-			<version>3.5</version>
+			<version>3.4</version>
 		</dependency>
 
 		<!-- Testing dependencies -->
@@ -494,15 +495,10 @@
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-validator</artifactId>
-			<version>5.4.0.Final</version>
+			<version>5.2.4.Final</version>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
-			<groupId>javax.persistence</groupId>
-			<artifactId>persistence-api</artifactId>
-			<version>1.0.2</version>
-			<scope>test</scope>
-		</dependency>
+
 
 		<!-- Spring framework -->
 		<dependency>
@@ -542,4 +538,8 @@
 
 
 </project>
+
+    Contact GitHub API Training Shop Blog About 
+
+    © 2017 GitHub, Inc. Terms Privacy Security Status Help 
 
