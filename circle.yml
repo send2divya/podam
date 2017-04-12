@@ -6,11 +6,6 @@ machine:
     version: oraclejdk8
 
 general:
-  branches:
-    only:
-      - master
-      - develop
-
    artifacts:
      - $CIRCLE_TEST_REPORTS
 
