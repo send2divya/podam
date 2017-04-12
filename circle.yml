@@ -1,5 +1,8 @@
 general:
 build_dir: api
-machine:
-environment:
-TESTOPTS: "--ci-dir=$CIRCLE_TEST_REPORTS/minitest-ci"
+test:
+  override:
+    - karma start ./karma.conf.js:
+        environment:
+          JUNIT_REPORT_PATH: $CIRCLE_TEST_REPORTS/junit/
+          JUNIT_REPORT_NAME: test-results.xml
