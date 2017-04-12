@@ -5,12 +5,6 @@ machine:
   java:
     version: oraclejdk8
 
-general:
-  branches:
-    only:
-      - master
-      - develop
-
 test:
   post:
     - mkdir -p $CIRCLE_TEST_REPORTS/junit/
